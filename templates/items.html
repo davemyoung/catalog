@@ -1,0 +1,34 @@
+<html>
+
+<head>
+</head>
+<body>
+{% include "main.html" %}
+{% block content %}
+
+<!-- takes main template with categories and naviation already present in the left column and adds a right column with the items filterd by category-->
+<div id ="rightcolumn">
+	<h1>{{catheader.name}}</h1>
+
+	<a href="{{url_for('newItem',category_id=catheader.id)}}">
+				Add New Item to {{catheader.name}}
+				</a>
+
+	{% for item in items %}
+
+	<h3>{{item.name}}</h3>
+
+	{{item.description}} </br>
+	
+	<a href='{{url_for('editItem', category_id = item.category_id, item_id = item.id) }}'>Edit</a>
+	<a href = '{{url_for('deleteItem', category_id = item.category_id, item_id = item.id) }}'>Delete</a></h3></br>
+
+	{% endfor %}
+</div>
+
+
+{% endblock %}
+
+
+</body>
+</html>

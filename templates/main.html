@@ -1,0 +1,45 @@
+<html>
+<!-- base template with header included and categories (with basic functions)
+	included, will be used for category and items page-->
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+{% include "header.html" %}
+
+{% block content %}
+
+
+<div id ="leftcolumn">
+
+
+	<h3>Categories</h3>
+
+	<a href="{{url_for('newCategory')}}">
+				<button id ="buttoncat" id="new-item">
+				Add New Category
+				</button></a>
+
+
+	{% for category in categories %}
+	
+	<h3>
+		<a href='{{url_for('showItems',  category_id =category.id ) }}'>
+				<button id ="buttoncat">
+				{{category.name}}
+				</button>
+	<a href='{{url_for('editCategory', category_id = category.id) }}'>Edit</a>
+	<a href = '{{url_for('deleteCategory', category_id = category.id) }}'>	Delete</a>				
+	</h3>
+	
+
+	{% endfor %}
+
+</div>
+
+
+{% endblock %}
+
+
+
+</html>
+

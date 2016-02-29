@@ -1,0 +1,20 @@
+<!--subpage containing the site header and login logout funciton
+the page checks which to display dependant on status of user-->
+
+<head>
+<link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<div>
+	{%if 'username' not in session %}
+		<a href="{{url_for('showLogin')}}">Click Here to Login </a>
+	{% else %}
+		<a href="{{url_for('gdisconnect')}}">Logout </a>
+	{% endif %}
+		
+</div>
+
+<div id="main-header">
+<h1>Sports</h1>
+</div>
+
+

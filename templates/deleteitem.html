@@ -1,0 +1,17 @@
+<!-- page that opens on click of delete button from categories and items page, which then checks forconfirmation of delete before proceeeding-->
+
+<body>
+{% extends "main.html" %}
+{% block content %}
+
+<h2> Please confirm you wish to delete {{category.name}} /{{item.name}}</h2>
+<form action="#" method = 'post'>
+	<button id= "buttoneditdelete" id="submit" type="submit">Delete</button>
+</form>
+	<a href = '{{url_for('showItems', category_id = category.id)}}'>
+	<button id= "buttoneditdelete">Cancel</button></a>
+	
+ 
+
+{% endblock %}
+</body>
